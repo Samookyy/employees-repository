@@ -1,6 +1,5 @@
-package com.example.springbootEmployees.Entity;
+package com.example.springbootEmployees.entity;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,10 +33,14 @@ public class EmployeeEntity {
     private LocalDate dateOfBirth;
 
     @Column(name = "civil_status")
-    private String civilStatus;
+    @Enumerated(EnumType.STRING)
+    private Civil_status civilStatus;
 
     @Column(name = "id_document")
     private String idDocument;
+
+    @Column(name = "nuit")
+    private String nuit;
 
     @Column(name = "address")
     private String address;
