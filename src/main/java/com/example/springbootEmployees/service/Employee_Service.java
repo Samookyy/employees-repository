@@ -10,5 +10,5 @@ public interface Employee_Service {
     List<EmployeeEntity> listAllEmployees();
     EmployeeEntity getEmployeeById(Long id);
     EmployeeEntity updateEmployeeById(Long id, EmployeeRecordDto employeeRecordDto);
-    void deleteEmployeeById(Long id);
+    EmployeeEntity deleteEmployeeById(Long id);
 }
