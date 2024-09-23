@@ -22,7 +22,7 @@ public class Employee_Controller {
     private Employee_Service employee_service;
 
     @PostMapping("/employees")
-    public ResponseEntity<EmployeeEntity> createEmployee(@Valid @RequestBody EmployeeRecordDto employeeRecordDto) {
+    public ResponseEntity<EmployeeEntity> createEmployee( @RequestBody @Valid EmployeeRecordDto employeeRecordDto) {
         EmployeeEntity employee1 = employee_service.create_Employee(employeeRecordDto);
         return new ResponseEntity<>(employee1, HttpStatus.CREATED);
     }
@@ -40,13 +40,13 @@ public class Employee_Controller {
 
     }
 
-    @PutMapping("/employees")
-    public ResponseEntity<EmployeeEntity> updateEmployeeById(@RequestBody Long id,@Valid EmployeeRecordDto employeeRecordDto) {
+    @PutMapping("/employees/{id}")
+    public ResponseEntity<EmployeeEntity> updateEmployeeById( @PathVariable Long id, @RequestBody @Valid EmployeeRecordDto employeeRecordDto) {
         EmployeeEntity employee = employee_service.updateEmployeeById(id, employeeRecordDto);
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
 
-    @DeleteMapping("/employees")
+    @DeleteMapping("/employees/{id}")
     public ResponseEntity<EmployeeEntity> deleteEmployeeById(@PathVariable Long id) {
         EmployeeEntity employee = employee_service.deleteEmployeeById(id);
         return new ResponseEntity<>(employee, HttpStatus.OK);

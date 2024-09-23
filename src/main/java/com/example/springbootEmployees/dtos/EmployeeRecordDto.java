@@ -6,24 +6,24 @@ import jakarta.validation.constraints.*;
 import java.time.LocalDate;
 
 public record EmployeeRecordDto(
-        @NotBlank
+        @NotBlank(message = "The camp must not be blank.")
         String name,
-        @NotBlank
+        @NotBlank(message = "The camp must not be blank.")
         String surname,
-        @NotNull
+        @NotNull(message = "The camp must not be null.")
         LocalDate dateOfBirth,
-        @NotBlank
+        @NotNull(message = "The camp must not be blank.")
         Civil_status civilStatus,
-        @NotBlank
+        @NotBlank(message = "The camp must not be blank.")
         String idDocument,
-        @NotBlank
+        @NotBlank(message = "The camp must not be blank.")
         String nuit,
-        @NotBlank
+        @NotBlank(message = "The camp must not be blank.")
         String address,
-        @NotNull
+        @NotNull(message = "The camp must not be null and must contain 9 numbers.")
         @Size(min = 9)
         String phoneNumber,
-        @NotBlank
+        @NotBlank(message = "The camp must not be blank, nor null, and must be the email format.")
         @NotNull
         @Email
         String email ) {
